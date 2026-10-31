@@ -1,0 +1,196 @@
+/* Quick Access */
+.quick-access {
+  padding: 100px 0;
+  position: relative;
+}
+
+.qa__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.qa__card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-med);
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+  font-family: var(--font-main);
+}
+.qa__card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cat-color, rgba(79,142,247,0.4));
+  background: var(--bg-card-hover);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 30px color-mix(in srgb, var(--cat-color) 20%, transparent);
+}
+.qa__card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, color-mix(in srgb, var(--cat-color) 10%, transparent), transparent 60%);
+  pointer-events: none;
+}
+.qa__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.qa__icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: var(--transition-med);
+}
+.qa__card:hover .qa__icon { transform: scale(1.1) rotate(-5deg); }
+.qa__count {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+.qa__title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.qa__desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.qa__arrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: var(--transition-med);
+}
+.qa__card:hover .qa__arrow { opacity: 1; transform: translateX(0); }
+
+/* How It Works */
+.how-it-works {
+  padding: 100px 0;
+  background: linear-gradient(180deg, transparent, rgba(79,142,247,0.03), transparent);
+}
+
+.hiw__steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0;
+  position: relative;
+}
+
+.hiw__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 32px;
+  position: relative;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.hiw__step-number {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 900;
+  opacity: 0.15;
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -2px;
+}
+
+.hiw__icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hiw__step:nth-child(2) .hiw__icon { animation-delay: 0.5s; }
+.hiw__step:nth-child(3) .hiw__icon { animation-delay: 1s; }
+.hiw__step:nth-child(4) .hiw__icon { animation-delay: 1.5s; }
+
+.hiw__title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.hiw__desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.hiw__connector {
+  display: none;
+}
+
+/* CTA Banner */
+.cta-banner {
+  padding: 60px 0 100px;
+}
+.cta-banner__inner {
+  position: relative;
+  padding: 56px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+.cta-banner__glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(79,142,247,0.1) 0%, rgba(124,58,237,0.1) 100%);
+  pointer-events: none;
+}
+.cta-banner__content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+}
+.cta-banner__icon { font-size: 52px; }
+.cta-banner__title {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.cta-banner__subtitle {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+.cta-banner__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .quick-access, .how-it-works { padding: 60px 0; }
+  .cta-banner__inner { padding: 36px 24px; flex-direction: column; text-align: center; }
+  .cta-banner__content { flex-direction: column; text-align: center; }
+  .cta-banner__actions { justify-content: center; }
+}
